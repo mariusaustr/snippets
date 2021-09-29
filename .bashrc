@@ -57,6 +57,7 @@ alias dcr='dcd; dcu'
 alias dcphp='dc run --rm php -d memory_limit=4096M'
 alias dca='dcphp artisan'
 alias dcnpm='dc run --rm npm run watch'
+alias dcnpmd='dc run --rm npm run dev'
 alias dcnpmi='dc run --rm npm install'
 alias dcc='dc run --rm composer install'
 
