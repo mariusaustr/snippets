@@ -60,6 +60,7 @@ alias dcnpm='dc run --rm npm run watch'
 alias dcnpmd='dc run --rm npm run dev'
 alias dcnpmi='dc run --rm npm install'
 alias dcc='dc run --rm composer install'
+alias dccu='dc run --rm composer u'
 
 alias dcanalyse='dcphp vendor/bin/phpstan analyse'
 alias dccs='dcphp vendor/bin/php-cs-fixer fix --config=.php_cs.php --verbose --diff'
