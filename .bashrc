@@ -69,3 +69,9 @@ alias dctest='dca test --parallel --recreate-databases'
 alias dctestcov='dctest --coverage-html public/reports'
 alias dcphpunit='dcphp vendor/bin/phpunit'
 alias sail='bash vendor/bin/sail'
+
+alias awsdev='aws sso login --profile testcard'
+alias awsprod='aws sso login --profile testcard-production'
+
+# When ubuntu starts consuming a lot of ram for no reason
+alias clear_ram_cache='sudo sync; sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
