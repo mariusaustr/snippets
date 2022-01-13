@@ -77,3 +77,7 @@ alias awsprod='aws sso login --profile testcard-production'
 
 # When ubuntu starts consuming a lot of ram for no reason
 alias clear_ram_cache='sudo sync; sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
+
+# try_docker_image php:8.0 php --version
+alias try_docker_image='docker run -it --rm -v $PWD:/var/www/html'
+
