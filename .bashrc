@@ -65,7 +65,7 @@ alias dcc='dc run --rm composer install'
 alias dccu='dc run --rm composer u'
 
 alias dcanalyse='dcphp vendor/bin/phpstan analyse'
-alias dccs='dcphp vendor/bin/php-cs-fixer fix --config=.php_cs.php --verbose --diff'
+alias dccs='dcphp vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose --diff'
 
 alias dctest='dca test --parallel --recreate-databases'
 alias dctestcov='dctest --coverage-html public/reports'
