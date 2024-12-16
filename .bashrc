@@ -38,45 +38,53 @@ alias php8='/usr/bin/php8.0'
 alias usephp7='sudo update-alternatives --set php /usr/bin/php7.4 && php -v'
 alias usephp8='sudo update-alternatives --set php /usr/bin/php8.0 && php -v'
 
-alias csfix='vendor/bin/php-cs-fixer fix --config=.php_cs.php --verbose --diff'
-alias phpunit='php artisan test --parallel --recreate-databases'
-alias phpunit-coverage='phpunit --coverage-html public/php-unit-coverage-report/'
+alias a="php artisan"
 
-alias expose-api='expose share http://localhost:8081 --subdomain=custom-domain'
+alias csfix='vendor/bin/php-cs-fixer fix --config=.php_cs.php --verbose --diff'
+alias test-coverage='php artisan test --parallel --coverage-html public/php-unit-coverage-report/'
+alias phpunit-coverage='php artisan test --parallel --coverage-html public/php-unit-coverage-report/'
+alias phpunit='php artisan test --parallel'
+
+alias expose-api='expose share http://localhost:8081 --subdomain=tc-api-covid-marius'
 alias ngrok-api='ngrok http localhost:8081'
 
-alias dc='docker-compose'
+alias dc='docker compose'
 alias dcu='dc up -d'
 alias dcd='dc down'
 alias dcr='dcd; dcu'
 
 alias dcphp='dc run --rm php -d memory_limit=4096M'
 alias dca='dcphp artisan'
-alias dcnpm='dc run --rm npm'
+alias dcnpm='dc run --rm --service-ports npm'
 alias dcnpmw='dcnpm run watch'
 alias dcnpmd='dcnpm run dev'
 alias dcnpmfix='dcnpm run eslint:fix'
 alias dcnpmi='dcnpm install'
-alias dcc='dc run --rm composer install'
-alias dccu='dc run --rm composer u'
+alias dcc='dc run --rm composer'
+alias dcci='dcc install'
+alias dccu='dcc u'
+alias dccr='dcc require'
+alias dccrm='dcc remove'
 
 alias dcanalyse='dcphp vendor/bin/phpstan analyse'
-alias dccs='dcphp vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose --diff'
+alias dccs='dcphp vendor/bin/php-cs-fixer fix --verbose --diff'
+alias dcpint='dcphp vendor/bin/pint'
+alias dccrowdin='dc run --rm crowdin'
 
 alias dctest='dca test --parallel --recreate-databases'
 alias dctestcov='dctest --coverage-html public/reports'
 alias dcphpunit='dcphp vendor/bin/phpunit'
 alias sail='bash vendor/bin/sail'
 
+# Please make sure you have the following export set in your .bashrc / .zshrc file so that the composer / npm containers create things with the correct permissions locally.
+export CURRENT_UID=$(id -u):$(id -g)
+
 alias awsdev='aws sso login --profile testcard'
 alias awsprod='aws sso login --profile testcard-production'
 
-# When ubuntu starts consuming a lot of ram for no reason
 alias clear_ram_cache='sudo sync; sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
 
-# try_docker_image php:8.0 php --version
-alias try_docker_image='docker run -it --rm -v $PWD:/var/www/html'
+alias try_docker_image='docker run -it --rm -v $PWD:/var/www/html -w /var/www/html '
 
 # DBeaver mysqdump options to export data:
 # --protocol=TCP --set-gtid-purged=OFF --lock-tables=false
-
